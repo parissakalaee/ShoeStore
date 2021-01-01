@@ -36,11 +36,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.logout_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
     }

@@ -20,9 +20,10 @@
     <string name="str_company">Company Name</string>
     <string name="str_company_hint">Please Enter Company Name</string>
     <string name="str_shoe_size">Shoe Size</string>
-    <string name="str_shoe_size_hint">Shoe Size Hint</string>
+    <string name="str_shoe_size_hint">Please Enter Shoe Size</string>
     <string name="str_description">Description</string>
-    <string name="str_description_hint">You can enter a short description about the shoe</string>
+    <string name="str_description_hint">You can enter a short description about the shoe here.</string>
     <string name="str_cancel">Cancel</string>
     <string name="str_save">Save</string>
+    <string name="str_image">image</string>
 </resources>

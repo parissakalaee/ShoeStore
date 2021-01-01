@@ -25,10 +25,9 @@
     </style>
 
     <style name="title_style">
-        <item name="android:layout_marginStart">@dimen/button_margin</item>
-        <item name="android:layout_marginEnd">@dimen/button_margin</item>
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
 </resources>

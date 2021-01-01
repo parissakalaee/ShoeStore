@@ -26,6 +26,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/layout_margin"
+            android:layout_marginStart="@dimen/button_margin"
+            android:layout_marginEnd="@dimen/button_margin"
             android:text="@string/str_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +53,8 @@
             style="@style/title_style"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/button_margin"
+            android:layout_marginEnd="@dimen/button_margin"
             android:text="@string/str_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,12 +81,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginEnd="@dimen/small_margin"
-            android:layout_marginBottom="@dimen/medium_margin"
             android:text="@string/str_sign_up"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sign_in_button"
             app:layout_constraintEnd_toStartOf="@+id/sign_in_button"
-            app:layout_constraintStart_toStartOf="@+id/password_edit"
-            app:layout_constraintTop_toBottomOf="@+id/password_edit" />
+            app:layout_constraintStart_toStartOf="@+id/password_edit" />
 
         <Button
             android:id="@+id/sign_in_button"
@@ -91,13 +93,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/medium_margin"
             android:text="@string/str_sign_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/password_edit"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/sign_up_button"
-            app:layout_constraintTop_toBottomOf="@+id/password_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/password_edit"
+            app:layout_constraintVertical_bias="0.524" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
