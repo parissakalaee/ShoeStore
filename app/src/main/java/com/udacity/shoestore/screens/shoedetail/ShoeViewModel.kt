@@ -1,23 +1,24 @@
-package com.udacity.shoestore.screens
+package com.udacity.shoestore.screens.shoedetail
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
-class ShoeListViewModel : ViewModel() {
+class ShoeViewModel : ViewModel() {
 
-    val shoeName = MutableLiveData<String>()
-    val shoeSize = MutableLiveData<String>()
-    val shoeCompany = MutableLiveData<String>()
-    val shoeDescription = MutableLiveData<String>()
+    val name = MutableLiveData<String>()
+    val size = MutableLiveData<String>()
+    val company = MutableLiveData<String>()
+    val description = MutableLiveData<String>()
 
     var shoe: Shoe = Shoe("", 0.0, "", "", mutableListOf())
         get() = field.apply {
-            name = shoeName.value!!
-            size = shoeSize.value?.toDouble() ?: 0.0
-            company = shoeCompany.value!!
-            description = shoeDescription.value!!
+            name = this@ShoeViewModel.name.value!!
+            size = this@ShoeViewModel.size.value?.toDouble() ?: 0.0
+            company = this@ShoeViewModel.company.value!!
+            description = this@ShoeViewModel.description.value!!
         }
 
     //create the list
@@ -29,11 +30,11 @@ class ShoeListViewModel : ViewModel() {
         get() = _shoeData
 
     init {
-
     }
 
-    fun addShoe(shoe: Shoe) {
+    fun addShoe(v: View, shoe: Shoe) {
         shoesList.add(shoe)
         _shoeData.value = shoesList
     }
+
 }

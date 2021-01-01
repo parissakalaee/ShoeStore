@@ -1,4 +1,4 @@
-package com.udacity.shoestore.screens
+package com.udacity.shoestore.screens.shoedetail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,23 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment : Fragment() {
 
-    private lateinit var viewModel: ShoeViewModel
+    private lateinit var shoeViewModel: ShoeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         val binding: FragmentShoeDetailBinding =
                 DataBindingUtil.inflate(
                         inflater,
@@ -31,15 +27,17 @@ class ShoeDetailFragment : Fragment() {
                         false
                 )
 
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
-        binding.viewModel = viewModel
+        shoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+        binding.shoeViewModel = shoeViewModel
+        binding.lifecycleOwner = this
 
-        binding.saveButton.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeListFragment)
-        )
-        binding.cancelDetailButton.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeListFragment)
-        )
+        binding.saveButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.cancelDetailButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         return binding.root
     }

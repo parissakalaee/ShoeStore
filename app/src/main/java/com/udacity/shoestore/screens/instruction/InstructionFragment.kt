@@ -1,36 +1,31 @@
-package com.udacity.shoestore.screens
+package com.udacity.shoestore.screens.instruction
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentInstructionBinding
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
-
-class LoginFragment : Fragment() {
-
+class InstructionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentLoginBinding =
+        val binding: FragmentInstructionBinding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.fragment_login,
+                R.layout.fragment_instruction,
                 container,
                 false
             )
 
-        binding.signInButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
-        )
-        binding.signUpButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
+        binding.nextInstructionButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_instructionFragment_to_shoeListFragment)
         )
         return binding.root
     }

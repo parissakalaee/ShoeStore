@@ -19,7 +19,7 @@
         android:paddingRight="@dimen/fragment_horizontal_margin"
         android:paddingBottom="@dimen/fragment_vertical_margin"
         android:textAlignment="center"
-        tools:context=".screens.InstructionFragment">
+        tools:context=".screens.instruction.InstructionFragment">
 
         <TextView
             android:id="@+id/shoe_detail_name"
