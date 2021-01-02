@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -30,16 +28,15 @@ class ShoeDetailFragment : Fragment() {
                         false
                 )
 
-        shoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
         binding.shoeViewModel = shoeViewModel
         binding.lifecycleOwner = this
 
         binding.shoe = Shoe("", 0.0, "", "", emptyList())
-        shoeViewModel.isRedirect.observe(viewLifecycleOwner, Observer { isCompleted ->
+        shoeViewModel.isItemAdded.observe(viewLifecycleOwner, { isCompleted ->
             if (isCompleted) {
                 findNavController().navigateUp()
-                shoeViewModel.redirectCompleted()
-                Toast.makeText(activity, "Shoe Added", Toast.LENGTH_SHORT).show()
+                shoeViewModel.addItemCompleted()
             }
         })
 

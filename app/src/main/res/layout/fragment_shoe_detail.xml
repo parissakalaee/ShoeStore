@@ -125,7 +125,6 @@
                 android:layout_marginStart="@dimen/button_margin"
                 android:layout_marginEnd="@dimen/button_margin"
                 android:autofillHints=""
-                android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/str_description_hint"
                 android:inputType="textMultiLine"

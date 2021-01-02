@@ -6,5 +6,6 @@
         android:enabled="true"
         android:title="@string/str_logout"
         android:visible="true"
+        android:icon="@drawable/ic_logout"
         app:showAsAction="ifRoom" />
 </menu>

@@ -10,21 +10,21 @@ class ShoeViewModel : ViewModel() {
     val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoeList
 
-    private val _isTriggered = MutableLiveData<Boolean>()
-    val isRedirect: LiveData<Boolean>
-        get() = _isTriggered
+    private val _isItemAdded = MutableLiveData<Boolean>()
+    val isItemAdded: LiveData<Boolean>
+        get() = _isItemAdded
 
     init {
-        _isTriggered.value = false
+        _isItemAdded.value = false
         _shoeList.value = ArrayList()
     }
 
     fun addShoe(shoe: Shoe) {
         _shoeList.value?.add(shoe)
-        _isTriggered.value = true
+        _isItemAdded.value = true
     }
 
-    fun redirectCompleted() {
-        _isTriggered.value = false
+    fun addItemCompleted() {
+        _isItemAdded.value = false
     }
 }
