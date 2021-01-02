@@ -28,11 +28,11 @@ class ShoeDetailFragment : Fragment() {
                         false
                 )
 
+        binding.shoe = Shoe("", 0.0, "", "", mutableListOf())
         shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
         binding.shoeViewModel = shoeViewModel
         binding.lifecycleOwner = this
 
-        binding.shoe = Shoe("", 0.0, "", "", emptyList())
         shoeViewModel.isItemAdded.observe(viewLifecycleOwner, { isCompleted ->
             if (isCompleted) {
                 findNavController().navigateUp()

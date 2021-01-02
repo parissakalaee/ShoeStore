@@ -43,7 +43,7 @@ class ShoeListFragment : Fragment() {
                 listItemBinding.shoe = shoe
                 binding.shoeListLayout.addView(listItemBinding.root)
                 val itemSeparator = View(requireContext(), null, 0, R.style.divider)
-                binding.shoeListLayout.addView(itemSeparator, 0)
+                binding.shoeListLayout.addView(itemSeparator)
             }
         })
 
