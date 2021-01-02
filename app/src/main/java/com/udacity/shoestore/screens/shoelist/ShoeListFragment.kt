@@ -3,10 +3,8 @@ package com.udacity.shoestore.screens.shoelist
 import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -43,11 +41,9 @@ class ShoeListFragment : Fragment() {
             shoeList.forEach { shoe ->
                 val listItemBinding = ShoeDetailItemBinding.inflate(layoutInflater, null, false)
                 listItemBinding.shoe = shoe
-                val layoutParams = ConstraintLayout.LayoutParams(
-                        ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT)
-                layoutParams.topMargin = 8
-                layoutParams.bottomMargin = 8
-                binding.shoeListLayout.addView(listItemBinding.root, -1, layoutParams)
+                binding.shoeListLayout.addView(listItemBinding.root)
+                val itemSeparator = View(requireContext(), null, 0, R.style.divider)
+                binding.shoeListLayout.addView(itemSeparator, 0)
             }
         })
 
