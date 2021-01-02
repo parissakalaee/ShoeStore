@@ -5,8 +5,12 @@
     <data>
 
         <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+
+        <variable
             name="shoeViewModel"
-            type="com.udacity.shoestore.screens.shoedetail.ShoeViewModel" />
+            type="com.udacity.shoestore.screens.shoedetails.ShoeViewModel" />
     </data>
 
     <ScrollView
@@ -41,7 +45,7 @@
                 android:autofillHints=""
                 android:hint="@string/str_shoe_name_hint"
                 android:inputType="text"
-                android:text="@={shoeViewModel.name}"
+                android:text="@={shoe.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shoe_name_text" />
@@ -68,7 +72,7 @@
                 android:autofillHints=""
                 android:hint="@string/str_company_hint"
                 android:inputType="text"
-                android:text="@={shoeViewModel.company}"
+                android:text="@={shoe.company}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/company_name_text" />
@@ -97,7 +101,6 @@
                 android:hint="@string/str_shoe_size_hint"
                 android:inputType="numberDecimal"
                 android:labelFor="@+id/shoe_size_text"
-                android:text="@={shoeViewModel.size}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shoe_size_text" />
@@ -126,7 +129,7 @@
                 android:gravity="start|top"
                 android:hint="@string/str_description_hint"
                 android:inputType="textMultiLine"
-                android:text="@={shoeViewModel.description}"
+                android:text="@={shoe.description}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shoe_description_text" />
@@ -139,7 +142,7 @@
                 android:layout_marginEnd="@dimen/small_margin"
                 android:layout_marginBottom="@dimen/layout_margin"
                 android:text="@string/str_save"
-                android:onClick="@{() -> shoeViewModel.addShoe()}"
+                android:onClick="@{() -> shoeViewModel.addShoe(shoe)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cancel_detail_button"
                 app:layout_constraintStart_toStartOf="@+id/shoe_description_edit" />

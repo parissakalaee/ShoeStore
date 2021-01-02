@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
-import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class InstructionFragment : Fragment() {
     override fun onCreateView(

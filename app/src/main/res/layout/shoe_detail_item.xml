@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="shoeModel"
+            name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
@@ -31,7 +30,7 @@
             android:background="@color/colorPrimaryDark"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="@={shoeModel.name}"
+            android:text="@={shoe.name}"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
@@ -59,7 +58,7 @@
             android:background="@color/colorPrimaryDark"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="@={shoeModel.company"
+            android:text="@={shoe.company"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@+id/shoe_name_text"
             app:layout_constraintStart_toStartOf="@+id/shoe_name_text"
