@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
 class ShoeDetailFragment : Fragment() {
 
@@ -21,22 +21,23 @@ class ShoeDetailFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         val binding: FragmentShoeDetailBinding =
-                DataBindingUtil.inflate(
-                        inflater,
-                        R.layout.fragment_shoe_detail,
-                        container,
-                        false
-                )
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_shoe_detail,
+                container,
+                false
+            )
 
-        binding.shoe = Shoe("", 0.0, "", "", mutableListOf())
         shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
         binding.shoeViewModel = shoeViewModel
+        binding.shoe = shoeViewModel.shoe.value
+//        binding.shoe = Shoe("", 0.0, "", "", mutableListOf())
         binding.lifecycleOwner = this
 
-        shoeViewModel.isItemAdded.observe(viewLifecycleOwner, { isCompleted ->
-            if (isCompleted) {
+        shoeViewModel.isShoeAdded.observe(viewLifecycleOwner, { isAdded ->
+            if (isAdded) {
                 findNavController().navigateUp()
-                shoeViewModel.addItemCompleted()
+                shoeViewModel.onAddShoe()
             }
         })
 

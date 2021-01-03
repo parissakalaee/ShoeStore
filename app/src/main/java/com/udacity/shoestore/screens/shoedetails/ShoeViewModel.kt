@@ -4,27 +4,33 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
 class ShoeViewModel : ViewModel() {
+    private val _shoe = MutableLiveData<Shoe>()
+    val shoe: LiveData<Shoe>
+        get() = _shoe
+
     private val _shoeList = MutableLiveData<MutableList<Shoe>>()
     val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoeList
 
-    private val _isItemAdded = MutableLiveData<Boolean>()
-    val isItemAdded: LiveData<Boolean>
-        get() = _isItemAdded
+    private val _isShoeAdded = MutableLiveData<Boolean>()
+    val isShoeAdded: LiveData<Boolean>
+        get() = _isShoeAdded
 
     init {
-        _isItemAdded.value = false
+        _isShoeAdded.value = false
         _shoeList.value = ArrayList()
+        _shoe.value = Shoe("", 0.0, "", "", mutableListOf())
     }
 
     fun addShoe(shoe: Shoe) {
         _shoeList.value?.add(shoe)
-        _isItemAdded.value = true
+        _isShoeAdded.value = true
     }
 
-    fun addItemCompleted() {
-        _isItemAdded.value = false
+    fun onAddShoe() {
+        _isShoeAdded.value = false
     }
 }
