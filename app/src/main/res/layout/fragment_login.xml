@@ -7,7 +7,7 @@
 
         <variable
             name="userModel"
-            type="com.udacity.shoestore.models.User" />
+            type="com.udacity.shoestore.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

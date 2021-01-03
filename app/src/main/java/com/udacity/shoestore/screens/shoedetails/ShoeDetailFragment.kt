@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import timber.log.Timber
+import com.udacity.shoestore.viewmodel.ShoeViewModel
 
 class ShoeDetailFragment : Fragment() {
 

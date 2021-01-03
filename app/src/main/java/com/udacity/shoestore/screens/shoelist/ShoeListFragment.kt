@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ShoeDetailItemBinding
-import com.udacity.shoestore.screens.shoedetails.ShoeViewModel
+import com.udacity.shoestore.viewmodel.ShoeViewModel
 
 class ShoeListFragment : Fragment() {
 

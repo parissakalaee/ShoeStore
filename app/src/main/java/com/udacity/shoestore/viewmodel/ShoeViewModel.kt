@@ -1,10 +1,9 @@
-package com.udacity.shoestore.screens.shoedetails
+package com.udacity.shoestore.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.udacity.shoestore.models.Shoe
-import timber.log.Timber
+import com.udacity.shoestore.model.Shoe
 
 class ShoeViewModel : ViewModel() {
     private val _shoe = MutableLiveData<Shoe>()
@@ -32,5 +31,6 @@ class ShoeViewModel : ViewModel() {
 
     fun onAddShoe() {
         _isShoeAdded.value = false
+        _shoe.value = Shoe("", 0.0, "", "", mutableListOf())
     }
 }

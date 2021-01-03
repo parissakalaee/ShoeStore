@@ -7,7 +7,7 @@
 
         <variable
             name="shoeViewModel"
-            type="com.udacity.shoestore.screens.shoedetails.ShoeViewModel" />
+            type="com.udacity.shoestore.viewmodel.ShoeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
