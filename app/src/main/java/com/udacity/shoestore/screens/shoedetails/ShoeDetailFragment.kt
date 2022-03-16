@@ -1,20 +1,23 @@
 package com.udacity.shoestore.screens.shoedetails
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.viewmodel.ShoeViewModel
+import com.udacity.shoestore.viewmodel.SharedShoeViewModel
 
 class ShoeDetailFragment : Fragment() {
 
-    private lateinit var shoeViewModel: ShoeViewModel
+    private lateinit var shoeViewModel: SharedShoeViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -28,23 +31,26 @@ class ShoeDetailFragment : Fragment() {
                 false
             )
 
-        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
-        binding.shoeViewModel = shoeViewModel
-        binding.shoe = shoeViewModel.shoe.value
-//        binding.shoe = Shoe("", 0.0, "", "", mutableListOf())
+        shoeViewModel = ViewModelProvider(requireActivity()).get(SharedShoeViewModel::class.java)
         binding.lifecycleOwner = this
+        binding.shoeViewModel = shoeViewModel
 
-        shoeViewModel.isShoeAdded.observe(viewLifecycleOwner, { isAdded ->
+        shoeViewModel.isShoeAdded.observe(viewLifecycleOwner) { isAdded ->
             if (isAdded) {
                 findNavController().navigateUp()
                 shoeViewModel.onAddShoe()
             }
-        })
+        }
 
         binding.cancelDetailButton.setOnClickListener {
             findNavController().navigateUp()
         }
 
+//        // Only runs if there is a view that is currently focused
+//        requireActivity().currentFocus?.let { view ->
+//            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+//            imm?.hideSoftInputFromWindow(view.windowToken, 0)
+//        }
         return binding.root
     }
 }

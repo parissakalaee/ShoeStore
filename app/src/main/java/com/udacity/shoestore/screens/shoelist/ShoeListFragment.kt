@@ -11,11 +11,11 @@ import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ShoeDetailItemBinding
-import com.udacity.shoestore.viewmodel.ShoeViewModel
+import com.udacity.shoestore.viewmodel.SharedShoeViewModel
 
 class ShoeListFragment : Fragment() {
 
-    private lateinit var shoeViewModel: ShoeViewModel
+    private lateinit var shoeViewModel: SharedShoeViewModel
     private var shoeItemLinearLayout: LinearLayout? = null
 
     override fun onCreateView(
@@ -23,21 +23,22 @@ class ShoeListFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         val binding: FragmentShoeListBinding =
-                DataBindingUtil.inflate(
-                        inflater,
-                        R.layout.fragment_shoe_list,
-                        container,
-                        false
-                )
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_shoe_list,
+                container,
+                false
+            )
 
         binding.fab.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment))
         setHasOptionsMenu(true)
 
-        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+        shoeViewModel = ViewModelProvider(requireActivity()).get(SharedShoeViewModel::class.java)
+        binding.lifecycleOwner = this
         binding.shoeViewModel = shoeViewModel
 
         shoeItemLinearLayout = binding.shoeListLayout
-        shoeViewModel.shoeList.observe(viewLifecycleOwner, { shoeList ->
+        shoeViewModel.shoeList.observe(viewLifecycleOwner) { shoeList ->
             shoeList.forEach { shoe ->
                 val listItemBinding = ShoeDetailItemBinding.inflate(layoutInflater, null, false)
                 listItemBinding.shoe = shoe
@@ -45,7 +46,7 @@ class ShoeListFragment : Fragment() {
                 val itemSeparator = View(requireContext(), null, 0, R.style.divider)
                 binding.shoeListLayout.addView(itemSeparator)
             }
-        })
+        }
 
         return binding.root
     }

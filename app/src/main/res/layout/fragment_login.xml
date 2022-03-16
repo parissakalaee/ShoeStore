@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="userModel"
-            type="com.udacity.shoestore.model.User" />
+            name="loginViewModel"
+            type="com.udacity.shoestore.screens.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +41,7 @@
             android:autofillHints=""
             android:hint="@string/str_email_hint"
             android:inputType="textEmailAddress"
-            android:text="@={userModel.username}"
+            android:text="@={loginViewModel.email}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_text" />
@@ -69,7 +68,7 @@
             android:autofillHints=""
             android:hint="@string/str_password_hint"
             android:inputType="textPassword"
-            android:text="@={userModel.password}"
+            android:text="@={loginViewModel.password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_text" />

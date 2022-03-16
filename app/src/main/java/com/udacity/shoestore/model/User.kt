@@ -1,3 +1,3 @@
 package com.udacity.shoestore.model
 
-data class User(var username: String = "", var password: String = "")
+data class User(var email: String, var password: String)
