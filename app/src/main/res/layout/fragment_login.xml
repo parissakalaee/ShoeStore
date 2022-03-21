@@ -41,7 +41,7 @@
             android:autofillHints=""
             android:hint="@string/str_email_hint"
             android:inputType="textEmailAddress"
-            android:text="@={loginViewModel.email}"
+            android:text="@={loginViewModel.user.email}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_text" />
@@ -68,7 +68,7 @@
             android:autofillHints=""
             android:hint="@string/str_password_hint"
             android:inputType="textPassword"
-            android:text="@={loginViewModel.password}"
+            android:text="@={loginViewModel.user.password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_text" />
