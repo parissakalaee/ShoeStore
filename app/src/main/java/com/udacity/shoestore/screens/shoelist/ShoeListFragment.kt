@@ -34,7 +34,7 @@ class ShoeListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         shoeViewModel = ViewModelProvider(requireActivity()).get(SharedShoeViewModel::class.java)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.shoeViewModel = shoeViewModel
 
         shoeItemLinearLayout = binding.shoeListLayout

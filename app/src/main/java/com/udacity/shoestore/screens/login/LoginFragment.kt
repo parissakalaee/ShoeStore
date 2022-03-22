@@ -21,8 +21,8 @@ class LoginFragment : Fragment() {
 
         // TODO: why the live data for user doesn't work and lifecycleowner this is necessary
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.loginViewModel = viewModel
-        binding.lifecycleOwner = this
 
         binding.signInButton.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())

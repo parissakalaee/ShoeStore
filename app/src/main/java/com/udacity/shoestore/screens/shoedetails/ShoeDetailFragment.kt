@@ -29,7 +29,7 @@ class ShoeDetailFragment : Fragment() {
             )
 
         shoeViewModel = ViewModelProvider(requireActivity()).get(SharedShoeViewModel::class.java)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.shoeViewModel = shoeViewModel
 
         shoeViewModel.isShoeAdded.observe(viewLifecycleOwner) { isAdded ->
